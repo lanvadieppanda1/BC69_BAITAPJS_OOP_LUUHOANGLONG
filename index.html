@@ -1,0 +1,125 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="mt-4 mb-4 text-center">Quản lý học viện</h1>
+
+        <div class="card mb-4">
+            <div class="card-header">
+                <h2 class="h5">Thêm người dùng</h2>
+            </div>
+            <div class="card-body">
+                <form id="addPersonForm">
+                    <div class="mb-3">
+                        <label for="id" class="form-label">Mã</label>
+                        <input type="text" class="form-control" id="id" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Họ tên</label>
+                        <input type="text" class="form-control" id="name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="address" class="form-label">Địa chỉ</label>
+                        <input type="text" class="form-control" id="address" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="userType" class="form-label">Loại người dùng</label>
+                        <select id="userType" class="form-select" required>
+                            <option value="Student">Sinh viên</option>
+                            <option value="Employee">Nhân viên</option>
+                            <option value="Customer">Khách hàng</option>
+                        </select>
+                    </div>
+
+                    <div id="studentFields" class="mb-3" style="display:none;">
+                        <div class="mb-3">
+                            <label for="math" class="form-label">Toán</label>
+                            <input type="number" class="form-control" id="math">
+                        </div>
+                        <div class="mb-3">
+                            <label for="physics" class="form-label">Lý</label>
+                            <input type="number" class="form-control" id="physics">
+                        </div>
+                        <div class="mb-3">
+                            <label for="chemistry" class="form-label">Hóa</label>
+                            <input type="number" class="form-control" id="chemistry">
+                        </div>
+                    </div>
+
+                    <div id="employeeFields" class="mb-3" style="display:none;">
+                        <div class="mb-3">
+                            <label for="workingDays" class="form-label">Số ngày làm việc</label>
+                            <input type="number" class="form-control" id="workingDays">
+                        </div>
+                        <div class="mb-3">
+                            <label for="salaryPerDay" class="form-label">Lương theo ngày</label>
+                            <input type="number" class="form-control" id="salaryPerDay">
+                        </div>
+                    </div>
+
+                    <div id="customerFields" class="mb-3" style="display:none;">
+                        <div class="mb-3">
+                            <label for="companyName" class="form-label">Tên công ty</label>
+                            <input type="text" class="form-control" id="companyName">
+                        </div>
+                        <div class="mb-3">
+                            <label for="invoiceValue" class="form-label">Trị giá hóa đơn</label>
+                            <input type="number" class="form-control" id="invoiceValue">
+                        </div>
+                        <div class="mb-3">
+                            <label for="rating" class="form-label">Đánh giá</label>
+                            <input type="text" class="form-control" id="rating">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Thêm</button>
+                </form>
+            </div>
+        </div>
+
+        <h2 class="h5">Danh sách người dùng</h2>
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Mã</th>
+                        <th>Họ tên</th>
+                        <th>Địa chỉ</th>
+                        <th>Email</th>
+                        <th>Thông tin chi tiết</th>
+                    </tr>
+                </thead>
+                <tbody id="personList"></tbody>
+            </table>
+        </div>
+
+        <div class="d-flex gap-2">
+            <button class="btn btn-secondary" onclick="sortByName()">Sắp xếp theo tên</button>
+            <button class="btn btn-info" onclick="calculateAverageScores()">Tính điểm trung bình (Sinh viên)</button>
+            <button class="btn btn-info" onclick="calculateSalaries()">Tính lương (Nhân viên)</button>
+        </div>
+    </div>
+
+    <!-- Import file JS -->
+    <script src="Models/Models.js"></script>
+    <script src="js/index.js"></script>
+
+    </div>
+
+</body>
+
+</html>
